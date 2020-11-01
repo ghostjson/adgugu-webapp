@@ -90,10 +90,12 @@
 
     import Form from "../../helpers/Form";
     import AlertBox from "../../components/AlertBox";
+    import FormMixin from "../../mixins/FormMixin";
 
     export default {
         name: 'Register',
         components: {AlertBox},
+        mixins: [FormMixin],
         data(){
             return {
                 register: {
@@ -106,8 +108,7 @@
                     role: 'Advertiser',
                     terms: false,
                     phone: '',
-                },
-                alert: ''
+                }
             };
         },
         methods: {
@@ -137,11 +138,6 @@
                 }
 
                 e.preventDefault();
-            }
-        },
-        computed: {
-            anyAlert(){
-                return this.alert !== '';
             }
         }
     }

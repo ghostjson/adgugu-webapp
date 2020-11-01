@@ -23,6 +23,14 @@ const routes = [
       {
         path: '/login',
         component: () => import('../views/Client/Login')
+      },
+      {
+        path: '/advertiser-form',
+        component: () => import('../views/Client/AdvertiserForm')
+      },
+      {
+        path: '/promoter-form',
+        component: () => import('../views/Client/PromoterForm')
       }
     ]
   },

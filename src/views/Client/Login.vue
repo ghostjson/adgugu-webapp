@@ -37,13 +37,14 @@
 
     import AlertBox from "../../components/AlertBox";
     import Form from "../../helpers/Form";
+    import FormMixin from "../../mixins/FormMixin";
 
     export default {
         name: 'Register',
         components: {AlertBox},
+        mixins: [FormMixin],
         data(){
             return {
-                alert: '',
                 login: {
                     email: '',
                     password: ''
@@ -64,11 +65,6 @@
 
               e.preventDefault();
           },
-        },
-        computed: {
-            anyAlert(){
-                return this.alert !== '';
-            }
         }
     }
 </script>
