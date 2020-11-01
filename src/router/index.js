@@ -1,9 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Client from "../views/Client/Client";
 import Home from "../views/Client/Home";
-import Contact from "../views/Client/Contact";
-import Register from "../views/Client/Register";
-import Login from "../views/Client/Login";
 
 const routes = [
   {
@@ -17,15 +14,15 @@ const routes = [
       },
       {
         path: '/contact',
-        component: Contact
+        component: () => import('../views/Client/Contact')
       },
       {
         path: '/register',
-        component: Register
+        component: () => import('../views/Client/Register')
       },
       {
         path: '/login',
-        component: Login
+        component: () => import('../views/Client/Login')
       }
     ]
   },

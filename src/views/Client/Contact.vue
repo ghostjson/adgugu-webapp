@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <!-- Google Map -->
-                    <div class="map" data-latitude="-37.817240" data-longitude="144.955826" data-style="light" data-info=""></div>
+                    <div class="map" style="width: 100%; height: 100%;" data-latitude="-37.817240" data-longitude="144.955826" data-style="light" data-info=""></div>
                     <!-- end: Google Map -->
                 </div>
             </div>
@@ -59,6 +59,19 @@
 
 <script>
     export default {
-        name: 'Contact'
+        name: 'Contact',
+        mounted() {
+            refreshOnce();
+        }
+    }
+
+
+    function refreshOnce() {
+        if (localStorage.getItem('reloaded')) {
+            localStorage.removeItem('reloaded');
+        } else {
+            localStorage.setItem('reloaded', '1');
+            location.reload();
+        }
     }
 </script>
