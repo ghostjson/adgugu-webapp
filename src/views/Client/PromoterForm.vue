@@ -13,7 +13,7 @@
 
                             <div class="col-lg-12 form-group">
                                 <label for="gender" class="sr-only">Gender</label>
-                                <select v-model="form.gender" id="gender" class="form-control">
+                                <select required v-model="form.gender" id="gender" class="form-control">
                                     <option value="" selected>Select your gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-lg-12 form-group">
                                 <label for="dob" class="sr-only">DOB</label>
-                                <input placeholder="DOB" class="form-control" v-model="form.dob" type="text" id="dob" onfocus="(this.type='date')">
+                                <input required placeholder="DOB" class="form-control" v-model="form.dob" type="text" id="dob" onfocus="(this.type='date')">
                             </div>
                             <div class="col-lg-12 form-group">
                                 <label for="interest" class="sr-only">Interests</label>

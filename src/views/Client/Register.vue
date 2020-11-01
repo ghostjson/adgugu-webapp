@@ -91,6 +91,7 @@
     import Form from "../../helpers/Form";
     import AlertBox from "../../components/AlertBox";
     import FormMixin from "../../mixins/FormMixin";
+    import router from "../../router";
 
     export default {
         name: 'Register',
@@ -122,6 +123,7 @@
             },
             submit(e)
             {
+                e.preventDefault();
                 const form = new Form(this.register);
 
                 if(!this.register.terms){
@@ -134,10 +136,15 @@
                 {
                     this.alert = form.getFieldError();
                 }else{
-                    console.log(this.register)
+                    //DEMO CODE
+                    if(this.register.role === 'Advertiser') {
+                        router.push('advertiser-form')
+                    }else{
+                        router.push('promoter-form')
+                    }
                 }
 
-                e.preventDefault();
+
             }
         }
     }
