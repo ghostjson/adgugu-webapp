@@ -2,43 +2,63 @@
     <section class="p-t-10">
         <h3 class="m-b-60">Register</h3>
         <div class="container">
+
+            <alert-box v-if="anyAlert" type="danger" :content="alert"></alert-box>
+
             <div class="row">
                 <div class="col-lg-8 center no-padding">
-                    <form class="form-transparent-grey">
+                    <form class="form-transparent-grey" @submit="submit">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="fun" class="col-sm-4 col-md-4 control-label text-right">Who are you?</label>
+                                    <div class="col-sm-7 col-md-7">
+                                        <div class="input-group">
+                                            <div id="role" class="btn-group">
+                                                <a class="btn btn-primary btn-sm" v-on:click="changeRole('Advertiser')" :class="whichRole('Advertiser')" data-toggle="fun" data-title="Y">Advertiser</a>
+                                                <a class="btn btn-primary btn-sm" v-on:click="changeRole('Promoter')" :class="whichRole('Promoter')"  data-toggle="fun" data-title="X">Promoter</a>
+                                                <a class="btn btn-primary btn-sm" v-on:click="changeRole('Shopper')" :class="whichRole('Shopper')"  data-toggle="fun" data-title="N">Shopper</a>
+                                            </div>
+                                            <input type="hidden" name="fun" id="fun">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-lg-6 form-group">
                                 <label class="sr-only">First Name</label>
-                                <input type="text" value="" placeholder="First Name" class="form-control">
+                                <input required type="text" v-model="register.first_name" placeholder="First Name" class="form-control">
                             </div>
                             <div class="col-lg-6 form-group">
                                 <label class="sr-only">Last Name</label>
-                                <input type="text" value="" placeholder="Last Name" class="form-control">
+                                <input required type="text" v-model="register.last_name" placeholder="Last Name" class="form-control">
                             </div>
                             <div class="col-lg-12 form-group">
                                 <label class="sr-only">Email</label>
-                                <input type="text" value="" placeholder="Email" class="form-control">
+                                <input required type="email" v-model="register.email" placeholder="Email" class="form-control">
                             </div>
                             <div class="col-lg-12 form-group">
                                 <label class="sr-only">Password</label>
-                                <input type="password" value="" placeholder="Password" class="form-control">
+                                <input required type="password" v-model="register.password" placeholder="Password" class="form-control">
                             </div>
                             <div class="col-lg-12 form-group">
                                 <label class="sr-only">Conform Password</label>
-                                <input type="password" value="" placeholder="Conform Password" class="form-control">
+                                <input required type="password" v-model="register.confirm_password" placeholder="Conform Password" class="form-control">
                             </div>
                             <div class="col-lg-12 form-group">
                                 <label class="sr-only">Phone</label>
-                                <input type="text" value="" placeholder="Phone" class="form-control">
+                                <input required type="text" v-model="register.phone" placeholder="Phone" class="form-control">
                             </div>
                             <div class="col-lg-12 form-group">
                                 <label class="sr-only" for="address">Address</label>
-                                <textarea id="address" class="form-control" placeholder="Address"></textarea>
+                                <textarea required id="address" v-model="register.address" class="form-control" placeholder="Address"></textarea>
                             </div>
 
 
                             <div class="col-lg-12 form-group" style="text-align: left">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="terms">
+                                    <input required class="form-check-input" v-model="register.terms" type="checkbox" id="terms">
                                     <label class="form-check-label" for="terms">
                                         <router-link to="/">Agree with Terms of Service</router-link>
                                     </label>
@@ -48,7 +68,7 @@
 
                         <div class="row">
                             <div class="col-lg-12 form-group">
-                                <button class="btn" type="button">Register</button>
+                                <button class="btn" type="submit">Register</button>
                             </div>
                         </div>
                         <small>Already a member? <router-link to="/login">Login here.</router-link></small>
@@ -59,8 +79,70 @@
     </section>
 </template>
 
+<style>
+    #role .notActive{
+        color: #3276b1;
+        background-color: #fff;
+    }
+</style>
+
 <script>
+
+    import Form from "../../helpers/Form";
+    import AlertBox from "../../components/AlertBox";
+
     export default {
-        name: 'Register'
+        name: 'Register',
+        components: {AlertBox},
+        data(){
+            return {
+                register: {
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    password: '',
+                    confirm_password: '',
+                    address: '',
+                    role: 'Advertiser',
+                    terms: false,
+                    phone: '',
+                },
+                alert: ''
+            };
+        },
+        methods: {
+            whichRole(role)
+            {
+                return role === this.register.role ? 'active' : 'notActive';
+            },
+            changeRole(role)
+            {
+                this.register.role = role;
+            },
+            submit(e)
+            {
+                const form = new Form(this.register);
+
+                if(!this.register.terms){
+                    this.alert = "You should agree with the terms of service to continue";
+                    return;
+                }
+
+
+                if(!form.validateForm(['role']))
+                {
+                    this.alert = form.getFieldError();
+                }else{
+                    console.log(this.register)
+                }
+
+                e.preventDefault();
+            }
+        },
+        computed: {
+            anyAlert(){
+                return this.alert !== '';
+            }
+        }
     }
 </script>
