@@ -1,4 +1,8 @@
 <template>
+
+    <link href="css/style.css" rel="stylesheet">
+
+
     <client-header></client-header>
     <router-view></router-view>
     <client-footer></client-footer>

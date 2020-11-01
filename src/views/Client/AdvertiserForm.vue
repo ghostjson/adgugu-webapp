@@ -1,5 +1,5 @@
 <template>
-    <section class="p-t-10">
+    <section class="p-t-40">
         <h3 class="m-b-60">Let us know more about your business</h3>
 
         <div class="container">
@@ -78,6 +78,7 @@
     import FormMixin from "../../mixins/FormMixin";
     import AlertBox from "../../components/AlertBox";
     import Form from "../../helpers/Form";
+    import router from "../../router";
 
     export  default {
         name: 'AdvertiserForm',
@@ -106,7 +107,7 @@
                 {
                     this.alert = form.getFieldError();
                 }else{
-                    console.log(this.form);
+                    router.push('promoter')
                 }
 
                 e.preventDefault();

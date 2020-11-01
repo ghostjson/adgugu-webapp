@@ -31,7 +31,7 @@
     </div>
     <!-- end: Topbar -->
     <!-- Header -->
-    <header id="header" class="shadow-sm mb-5" data-fullwidth="true">
+    <header id="header" class="shadow-sm" data-fullwidth="true">
         <div class="header-inner">
             <div class="container">
                 <!--Logo-->

@@ -1,5 +1,5 @@
 <template>
-    <section class="p-t-10">
+    <section class="p-t-40">
         <h3 class="m-b-60">Register</h3>
         <div class="container">
 
