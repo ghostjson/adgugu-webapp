@@ -31,6 +31,10 @@
         width: 100px;
         height: auto;
     }
+
+    .sidenav{
+        z-index: 99 !important;
+    }
 </style>
 
 <script>

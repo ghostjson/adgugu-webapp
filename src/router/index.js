@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Client from "../views/Client/Client";
 import Home from "../views/Client/Home";
 import Promoter from "../views/Promoter/Promoter";
+import Advertiser from "../views/Advertiser/Advertiser";
 
 const routes = [
   {
@@ -39,6 +40,11 @@ const routes = [
     path: '/promoter',
     name: 'Promoter',
     component: Promoter
+  },
+  {
+    path: '/advertiser',
+    name: 'Advertiser',
+    component: Advertiser
   }
 ]
 
