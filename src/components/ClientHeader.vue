@@ -1,6 +1,6 @@
 <template>
     <!-- Topbar -->
-    <div id="topbar" class="d-none d-xl-block d-lg-block topbar-fullwidth">
+    <div id="topbar" class="d-none d-xl-block d-lg-block topbar-fullwidth" style="z-index: 99">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -31,7 +31,7 @@
     </div>
     <!-- end: Topbar -->
     <!-- Header -->
-    <header id="header" class="shadow-sm" data-fullwidth="true">
+    <header id="header" class="shadow-sm" data-fullwidth="true" style="z-index: 99">
         <div class="header-inner">
             <div class="container">
                 <!--Logo-->

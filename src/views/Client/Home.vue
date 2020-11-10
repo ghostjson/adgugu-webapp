@@ -1,6 +1,5 @@
 <template>
 
-
   <client-slider></client-slider>
 
   <client-about></client-about>
@@ -22,18 +21,25 @@
 
 </template>
 
+
+
 <script>
 // @ is an alias to /src
 
 import ClientSlider from "../../components/ClientSlider";
 import ClientAbout from "../../components/ClientAbout";
 import ClientPartners from "../../components/ClientPartners";
+
+
 export default {
   name: 'Home',
   components: {
     ClientPartners,
     ClientAbout,
     ClientSlider,
+  },
+  mounted() {
+    console.log(this.$parent.spinner)
   }
 }
 </script>

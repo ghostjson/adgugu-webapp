@@ -1,4 +1,6 @@
 <template>
+  <spinner-component v-if="spinner"></spinner-component>
+
   <router-view/>
 </template>
 
@@ -24,3 +26,29 @@
   color: #42b983;
 }
 </style>
+
+<script>
+
+  import SpinnerComponent from "./components/SpinnerComponent";
+
+  export default {
+    components: {SpinnerComponent},
+    data(){
+      return {
+        spinner: true
+      }
+    },
+    created() {
+
+      setTimeout( ()=>{
+        this.spinner = false;
+        console.log(this.spinner)
+      }, 1000)
+
+    },
+    mounted() {
+    },
+
+  }
+
+</script>
