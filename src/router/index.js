@@ -44,7 +44,21 @@ const routes = [
   {
     path: '/advertiser',
     name: 'Advertiser',
-    component: Advertiser
+    component: Advertiser,
+    children: [
+      {
+        path: '',
+        component: () => import('../views/Advertiser/Dashboard')
+      },
+      {
+        path: 'ad-campaigns',
+        component: () => import('../views/Advertiser/Campaigns')
+      },
+      {
+        path: 'ad-campaigns/:id',
+        component: () => import('../views/Advertiser/CampaignView')
+      }
+    ]
   }
 ]
 

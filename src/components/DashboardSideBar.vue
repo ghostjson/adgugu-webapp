@@ -12,12 +12,14 @@
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <!-- Nav items -->
                     <ul class="navbar-nav">
+                        <router-link  v-for="(menu,index) in menus" v-bind:key="index" v-bind:to="menu.link">
                         <li class="nav-item">
-                            <a class="nav-link active" href="examples/dashboard.html">
-                                <i class="ni ni-tv-2 text-primary"></i>
-                                <span class="nav-link-text">Dashboard</span>
-                            </a>
+                                <a class="nav-link active">
+                                    <i class="text-primary" :class="'ni '+menu.icon"></i>
+                                    <span class="nav-link-text">{{ menu.title }}</span>
+                                </a>
                         </li>
+                        </router-link>
                     </ul>
                 </div>
             </div>
@@ -27,18 +29,39 @@
 </template>
 
 <style>
-    #logo{
+    #logo {
         width: 100px;
         height: auto;
     }
 
-    .sidenav{
+    .sidenav {
         z-index: 99 !important;
     }
+
+    .navbar-nav{
+        margin-top: 12px;
+    }
+
+    .nav-link i{
+        font-size: 1.2em !important;
+    }
+
+    .nav-link-text{
+        line-height: 20px;
+        padding-top: 3px;
+        font-size: 1.2em;
+
+    }
+
 </style>
 
 <script>
     export default {
-        name: 'DashboardSideBar'
+        name: 'DashboardSideBar',
+        props: ['menus'],
+        data() {
+            return {
+            }
+        }
     }
 </script>
