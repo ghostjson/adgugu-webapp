@@ -1,9 +1,9 @@
 <template>
-
+    <h2>OfflineAd</h2>
 </template>
 
 <script>
     export default {
-        name: 'Offline'
+        name: 'OfflineAd'
     }
 </script>

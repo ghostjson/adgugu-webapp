@@ -118,11 +118,24 @@
                 this.step += 1;
 
                 if(this.step === 4){
-                    this.formRedirect(this.ad_campaign.ad_type)
+                    this.formRedirect(this.ad_campaign.ad_type, this.ad_campaign)
                 }
             },
-            formRedirect(value){
-
+            formRedirect(value, ad_campaign){
+                switch (value) {
+                    case 'non_video':
+                        this.$router.replace({name: 'newNonVideoAd', params: {ad_campaign}})
+                        break;
+                    case 'video':
+                        this.$router.push({name: 'newVideoAd', params: {ad_campaign}})
+                        break;
+                    case 'offline':
+                        this.$router.push({name: 'newOfflineAd', params: {ad_campaign}})
+                        break;
+                    default:
+                        this.modal_show = false
+                        break;
+                }
             }
         }
     }

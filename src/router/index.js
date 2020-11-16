@@ -61,6 +61,24 @@ const routes = [
       {
         path: 'ad-campaigns/edit/:id',
         component: () => import('../views/Advertiser/CampaignEdit')
+      },
+      {
+        path: 'ad-campaigns/new/non-video',
+        name: 'newNonVideoAd',
+        component: () => import('../views/Advertiser/CreateCampaign/NonVideoAd'),
+        props: true
+      },
+      {
+        path: 'ad-campaigns/new/video',
+        name: 'newVideoAd',
+        component: () => import('../views/Advertiser/CreateCampaign/VideoAd'),
+        props: true
+      },
+      {
+        path: 'ad-campaigns/new/offline',
+        name: 'newOfflineAd',
+        component: () => import('../views/Advertiser/CreateCampaign/OfflineAd'),
+        props: true
       }
     ]
   }
