@@ -22,7 +22,7 @@
 
                         <div class="row">
                             <div class="col-lg-12 form-group">
-                                <button class="btn" type="submit">Register</button>
+                                <button class="btn" type="submit">Login</button>
                             </div>
                         </div>
                         <small>Not a member? <router-link to="/register">Register here.</router-link></small>
@@ -62,6 +62,8 @@
               }else{
                   console.log(this.login)
               }
+
+              this.$router.push('/advertiser')
 
               e.preventDefault();
           },
