@@ -1,5 +1,25 @@
 <template>
 
+    <modal title="Start AD Campaign" @close="closeModal()" :show="modal_show">
+        <div class="modal-body" v-if="step === 0">
+            <button type="button" @click="selectOption('start_type','new')" class="btn btn-primary btn-lg btn-block">Start New AD Campaign</button>
+            <button type="button" @click="selectOption('start_type','renew')" class="btn btn-secondary btn-lg btn-block">Renew Saved Ad Campaign</button>
+        </div>
+        <div class="modal-body" v-if="step === 1">
+            <button type="button" @click="selectOption('sell_type', 'product')" class="btn btn-primary btn-lg btn-block">I Want To Advertise My Product</button>
+            <button type="button" @click="selectOption('sell_type', 'service')" class="btn btn-secondary btn-lg btn-block">I Want To Advertise My Service</button>
+        </div>
+        <div class="modal-body" v-if="step === 2">
+            <button type="button" @click="selectOption('scope', 'general')" class="btn btn-primary btn-lg btn-block">I Want To Do General Advertisement</button>
+            <button type="button" @click="selectOption('scope', 'specific')" class="btn btn-secondary btn-lg btn-block">I Want To Advertise My Specific {{ ad_campaign.ad_type.charAt(0).toUpperCase() + ad_campaign.ad_type.slice(1) }}</button>
+        </div>
+        <div class="modal-body" v-if="step === 3 && ad_campaign.scope === 'general'">
+            <button type="button" @click="selectOption('ad_type', 'non_video')" class="btn btn-primary btn-lg btn-block">I Want People To Click My Online Non-Video Ad</button>
+            <button type="button" @click="selectOption('ad_type', 'video')" class="btn btn-primary btn-lg btn-block">I Want People To View My Online Video Ad</button>
+            <button type="button" @click="selectOption('ad_type', 'offline')" class="btn btn-primary btn-lg btn-block">I Want People To Visit My Offline Stores</button>
+        </div>
+    </modal>
+
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
@@ -9,7 +29,7 @@
                        <h3>Ad Campaigns</h3>
                     </div>
                     <div class="col-4">
-                        <button class="btn btn-sm btn-primary">Start AD Campaign</button>
+                        <button v-on:click="startAdCampaign" class="btn btn-sm btn-primary">Start AD Campaign</button>
                     </div>
                 </div>
             </div>
@@ -41,10 +61,11 @@
 
 <script>
     import DataTable from "../../components/DataTable";
+    import Modal from "../../components/Modal";
 
     export default {
         name: 'Campaigns',
-        components: {DataTable},
+        components: {Modal, DataTable},
 
         data() {
             return {
@@ -70,7 +91,38 @@
                         budget_remaining: 200,
                         end_time: new Date(),
                     }
-                ]
+                ],
+                modal_show: false,
+                ad_campaign: {
+                    start_type: '',
+                    sell_type: '',
+                    scope: '',
+                    ad_type: ''
+                },
+                step: 0
+            }
+        },
+        methods: {
+            startAdCampaign(){
+                this.modal_show = true
+            },
+            closeModal(){
+                this.modal_show = false;
+
+                // set all fields blank
+                Object.keys(this.ad_campaign).forEach(v => this.ad_campaign[v] = '')
+                this.step = 0; // reset form
+            },
+            selectOption(field, value){
+                this.ad_campaign[field] = value;
+                this.step += 1;
+
+                if(this.step === 4){
+                    this.formRedirect(this.ad_campaign.ad_type)
+                }
+            },
+            formRedirect(value){
+
             }
         }
     }
