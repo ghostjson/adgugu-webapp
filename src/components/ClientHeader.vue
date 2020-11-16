@@ -36,8 +36,8 @@
             <div class="container">
                 <!--Logo-->
                 <div id="logo">
-                    <a href="index.html">
-                        <img src="images/logo/logo.jpg" class="logo-default">
+                    <a href="/">
+                        <img src="/images/logo/logo.jpg" class="logo-default">
                     </a>
                 </div>
                 <!--End: Logo-->

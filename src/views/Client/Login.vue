@@ -6,7 +6,7 @@
             <alert-box v-if="anyAlert" type="danger" :content="alert"></alert-box>
 
             <div class="row">
-                <div class="col-lg-8 center no-padding">
+                <div class="col-lg-8 center no-padding no-margin">
                     <form class="form-transparent-grey" @submit="submit">
                         <div class="row">
 

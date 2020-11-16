@@ -57,6 +57,10 @@ const routes = [
       {
         path: 'ad-campaigns/:id',
         component: () => import('../views/Advertiser/CampaignView')
+      },
+      {
+        path: 'ad-campaigns/edit/:id',
+        component: () => import('../views/Advertiser/CampaignEdit')
       }
     ]
   }
