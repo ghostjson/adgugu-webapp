@@ -45,6 +45,6 @@
             close(){
                 this.$emit('close', false);
             }
-        },
+        }
     }
 </script>
