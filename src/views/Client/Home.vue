@@ -176,7 +176,7 @@
               <li>Increase Brand & Products Awareness</li>
               <li>Grow Your Business</li>
             </ul>
-            <a class="btn" href="#">Register as Advertiser</a>
+            <router-link class="btn" :to="{name: 'register', params: { type: 'Advertiser' }}">Register as Advertiser</router-link>
             <div class="know-more">
               <a href="#" @click="knowMore('advertiser')">Know More</a>
             </div>
@@ -197,7 +197,7 @@
               <li>Enjoy Great Shopping Discounts</li>
               <li>Please Your Friends with Great Discount News</li>
             </ul>
-            <a class="btn" href="#">Register as Promoter</a>
+            <router-link class="btn" :to="{name: 'register', params: { type: 'Promoter' }}">Register as Promoter</router-link>
             <div class="know-more">
               <a href="#"  @click="knowMore('promoter')">Know More</a>
             </div>
@@ -223,7 +223,7 @@
               <li>Save Time on Shopping</li>
               <li>Have Fun Shopping</li>
             </ul>
-            <a class="btn" href="#">Register as Shopper</a>
+            <router-link class="btn" :to="{name: 'register', params: { type: 'Shopper' }}">Register as Shopper</router-link>
             <div class="know-more">
               <a href="#" @click="knowMore('shopper')" >Know More</a>
             </div>
@@ -240,7 +240,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-9r">
           <h3 class="text-light">Like To Make Some Money? Register as a Promoter</h3>
-          <a class="btn btn-light btn-outline btn-rounded">Register</a>
+          <router-link class="btn btn-light btn-outline btn-rounded" :to="{name: 'register', params: { type: 'Promoter' }}">Register</router-link>
         </div>
       </div>
     </div>
@@ -285,6 +285,10 @@
     font-weight: 200;
     text-transform: none;
     text-decoration: underline;
+  }
+
+  .heading-text{
+    font-size: 1.5em;
   }
 </style>
 

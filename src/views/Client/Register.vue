@@ -92,11 +92,13 @@
     import AlertBox from "../../components/AlertBox";
     import FormMixin from "../../mixins/FormMixin";
     import router from "../../router";
+    import PageMixin from "../../mixins/PageMixin";
 
     export default {
         name: 'Register',
         components: {AlertBox},
-        mixins: [FormMixin],
+        mixins: [FormMixin, PageMixin],
+
         data(){
             return {
                 register: {
@@ -145,6 +147,14 @@
                 }
 
 
+            }
+        },
+        mounted() {
+            if(this.$route.params.type !== '') {
+                this.changeRole(this.$route.params.type)
+            }
+            else {
+                this.changeRole('Promoter')
             }
         }
     }

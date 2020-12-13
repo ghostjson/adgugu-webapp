@@ -19,7 +19,8 @@ const routes = [
         component: () => import('../views/Client/Contact')
       },
       {
-        path: '/register',
+        path: '/register/:type?',
+        name: 'register',
         component: () => import('../views/Client/Register')
       },
       {

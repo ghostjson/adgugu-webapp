@@ -34,6 +34,7 @@
     }
 
     .slide h1 {
+        font-size: 2em;
         text-transform: uppercase;
     }
 
