@@ -80,6 +80,11 @@ const routes = [
         name: 'newOfflineAd',
         component: () => import('../views/Advertiser/CreateCampaign/OfflineAd'),
         props: true
+      },
+      {
+        path: 'ad-campaigns/budget/',
+        name: 'Budget',
+        component: () => import('../views/Advertiser/CreateCampaign/Budget')
       }
     ]
   }

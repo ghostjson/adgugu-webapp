@@ -70,15 +70,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="target-age">Target Audience Age Group:</label>
-                                <select class="form-control" id="target-age">
-                                    <option>All Age Groups</option>
-                                    <option>10-17</option>
-                                    <option>18-22</option>
-                                    <option>23-30</option>
-                                    <option>31-50</option>
-                                    <option>51 and above</option>
-                                </select>
+                                <h4>Target Audience Age Group:</h4>
+                                <div>
+                                    <label for="from-age">From Age:</label> <input min="1" max="100" v-model="form.from_age" class="form-control" id="from-age" type="number" >
+                                    <label for="to-age">To Age:</label> <input min="1" max="100" v-model="form.to_age" class="form-control" id="to-age" type="number">
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -100,6 +96,8 @@
         methods: {
             submit(e) {
                 e.preventDefault()
+
+                this.$router.push('/advertiser/ad-campaigns/budget/')
             }
         }
     }
