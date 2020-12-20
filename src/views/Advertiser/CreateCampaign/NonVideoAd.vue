@@ -8,6 +8,7 @@
                 <div class="row">
                     <div class="col">
                         <form @submit="submit">
+                            <h4>Brand Information</h4>
                             <div class="form-group">
                                 <label for="link">Your online non-video link :</label>
                                 <input type="text" class="form-control" id="link">
@@ -85,6 +86,29 @@
                                 </div>
 
                             </div>
+                            <h4>Product Information</h4>
+                            <div class="form-group">
+                                <label for="regular_price">Regular Price: </label>
+                                <input id="regular_price" v-model="form.regular_price" class="form-control" type="number" value="100">
+                            </div>
+                            <div class="form-group">
+                                <label for="discount">Discount: </label>
+                                <input id="discount" v-model="form.discount" class="form-control" type="number" value="20">
+                            </div>
+                            <div class="form-group">
+                                <label for="sale_price">Discounted Sale Price: </label>
+                                <input readonly id="sale_price" v-model="form.sale_price" class="form-control" type="number" value="20">
+                            </div>
+                            <div class="form-group">
+                                <label for="coupon_code">Discount Coupon Code:
+                                    <button @click="generateCoupon" type="button" class="btn btn-dark btn-sm">Generate</button>
+                                </label>
+                                <input id="coupon_code" v-model="form.coupon_code" class="form-control" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description: </label>
+                                <textarea id="description" class="form-control"></textarea>
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
 
@@ -102,14 +126,40 @@
             return {
                 form: {
                     from_age: 21,
-                    to_age: 51
+                    to_age: 51,
+                    regular_price: 100,
+                    discount: 20,
+                    sale_price: 80,
+                    coupon_code: ''
                 }
             }
         },
         methods: {
             submit(e){ e.preventDefault()
                 this.$router.push('/advertiser/ad-campaigns/budget/')
+            },
+            generateCoupon(){
+                let coupon_length = 8;
+                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxyz'
+                let coupon = ''
+
+                for (let i=0;i<coupon_length;i++){
+                    let rand = Math.floor((Math.random() * characters.length));
+                    coupon += characters[rand]
+                }
+                this.form.coupon_code = coupon
+            },
+            computeSalePrice(){
+                this.form.sale_price = (this.form.regular_price * (1 - (this.form.discount/100))).toFixed(2)
             }
         },
+        watch: {
+            'form.regular_price': function () {
+                this.computeSalePrice()
+            },
+            'form.discount': function () {
+                this.computeSalePrice()
+            }
+        }
     }
 </script>

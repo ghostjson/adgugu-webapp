@@ -20,6 +20,18 @@
                         <input id="end-date" type="date" class="form-control">
                     </div>
                     <div class="form-group">
+                        <h4>Permission to share: </h4>
+                        <div class="form-check">
+                            <input checked type="radio"  class="form-check-input"  id="only_promoters" value="only" name="share">
+                            <label  class="form-check-label" for="only_promoters">Only selected promoters to share my ad with shoppers</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio"  class="form-check-input"  id="all_people" value="all" name="share">
+                            <label  class="form-check-label" for="all_people">Allow shoppers to share my ad with sub-shoppers and get paid</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
