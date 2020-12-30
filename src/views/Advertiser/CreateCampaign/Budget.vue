@@ -30,6 +30,10 @@
                             <label  class="form-check-label" for="all_people">Allow shoppers to share my ad with sub-shoppers and get paid</label>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="no_promoters">Number of promoters needed:</label>
+                        <input type="number" class="form-control" id="no_promoters" value="0">
+                    </div>
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -47,10 +51,19 @@
 <script>
     export default {
         name: 'Budget',
+        data(){
+          return {
+              form: {
+              }
+          }
+        },
 
         methods: {
             submit(e){
                 e.preventDefault()
+
+                this.$router.push({ name: 'PromotersList' })
+
             }
         }
     }

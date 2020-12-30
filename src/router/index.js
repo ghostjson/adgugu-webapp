@@ -56,10 +56,6 @@ const routes = [
         component: () => import('../views/Advertiser/Campaigns')
       },
       {
-        path: 'ad-campaigns/:id',
-        component: () => import('../views/Advertiser/CampaignView')
-      },
-      {
         path: 'ad-campaigns/edit/:id',
         component: () => import('../views/Advertiser/CampaignEdit')
       },
@@ -85,6 +81,20 @@ const routes = [
         path: 'ad-campaigns/budget/',
         name: 'Budget',
         component: () => import('../views/Advertiser/CreateCampaign/Budget')
+      },
+      {
+        path: 'ad-campaigns/promoters-list',
+        name: 'PromotersList',
+        component: () => import('../views/Advertiser/CreateCampaign/PromotersList')
+      },
+      {
+        path: 'ad-campaigns/campaign-completed',
+        name: 'PromotersComplete',
+        component: () => import('../views/Advertiser/CreateCampaign/FinishCampaign')
+      },
+      {
+        path: 'ad-campaigns/:id',
+        component: () => import('../views/Advertiser/CampaignView')
       }
     ]
   }

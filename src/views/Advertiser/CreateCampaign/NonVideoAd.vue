@@ -89,15 +89,15 @@
                             <h4>Product Information</h4>
                             <div class="form-group">
                                 <label for="regular_price">Regular Price: </label>
-                                <input id="regular_price" v-model="form.regular_price" class="form-control" type="number" value="100">
+                                <input id="regular_price" v-model="form.regular_price" class="form-control" type="number">
                             </div>
                             <div class="form-group">
                                 <label for="discount">Discount: </label>
-                                <input id="discount" v-model="form.discount" class="form-control" type="number" value="20">
+                                <input id="discount" v-model="form.discount" class="form-control" type="number">
                             </div>
                             <div class="form-group">
                                 <label for="sale_price">Discounted Sale Price: </label>
-                                <input readonly id="sale_price" v-model="form.sale_price" class="form-control" type="number" value="20">
+                                <input readonly id="sale_price" v-model="form.sale_price" class="form-control" type="number">
                             </div>
                             <div class="form-group">
                                 <label for="coupon_code">Discount Coupon Code:
