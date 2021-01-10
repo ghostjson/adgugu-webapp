@@ -91,7 +91,16 @@
     export default {
         name: 'VideoAd',
         data(){
-
+            return {
+                form: {
+                    from_age: 21,
+                    to_age: 51,
+                    regular_price: 100,
+                    discount: 20,
+                    sale_price: 80,
+                    coupon_code: ''
+                }
+            }
         },
         methods: {
             submit(e) {
