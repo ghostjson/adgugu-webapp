@@ -71,7 +71,9 @@
                 </person-tile>
             </div>
             <div class="card-footer text-right">
-                <button class="btn btn-dark">Finish</button>
+                <button class="btn btn-primary" @click="finish">Save</button>
+                <button class="btn btn-default" @click="finish">Finish</button>
+                <button class="btn btn-dark" @click="finish">Save & Finish</button>
             </div>
         </div>
 
@@ -130,6 +132,9 @@
             }
         },
         methods: {
+            finish(){
+              this.$router.push({name: 'AdCampaigns'})
+            },
             selectPerson(index) {
 
                 if (!this.persons[index].selected) {

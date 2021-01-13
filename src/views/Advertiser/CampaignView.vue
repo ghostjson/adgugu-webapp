@@ -49,6 +49,9 @@
                 </table>
                 <div class="row mt-2">
                     <div class="col text-right">
+                        <router-link :to="{path: 'Budget'}" class="m-1">
+                            <button type="button" id="renew_button" class="btn btn-primary">Renew</button>
+                        </router-link>
                         <router-link to="/advertiser/ad-campaigns/edit/1" class="m-1">
                             <button type="button" id="edit_button" class="btn btn-default">Edit</button>
                         </router-link>

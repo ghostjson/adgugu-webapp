@@ -3,7 +3,7 @@
     <modal title="Start AD Campaign" @close="closeModal()" :show="modal_show">
         <div class="modal-body" v-if="step === 0">
             <button type="button" @click="selectOption('start_type','new')" class="btn btn-primary btn-lg btn-block">Start New AD Campaign</button>
-            <button type="button" @click="selectOption('start_type','renew')" class="btn btn-secondary btn-lg btn-block">Renew Saved Ad Campaign</button>
+            <button type="button" @click="renewCampaign" class="btn btn-secondary btn-lg btn-block">Renew Saved Ad Campaign</button>
         </div>
         <div class="modal-body" v-if="step === 1">
             <button type="button" @click="selectOption('sell_type', 'product')" class="btn btn-primary btn-lg btn-block">I Want To Advertise My Product</button>
@@ -136,6 +136,9 @@
                         this.modal_show = false
                         break;
                 }
+            },
+            renewCampaign(){
+                this.$router.push({name: 'RenewCampaign'})
             }
         }
     }

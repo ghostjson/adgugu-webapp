@@ -53,6 +53,7 @@ const routes = [
       },
       {
         path: 'ad-campaigns',
+        name: 'AdCampaigns',
         component: () => import('../views/Advertiser/Campaigns')
       },
       {
