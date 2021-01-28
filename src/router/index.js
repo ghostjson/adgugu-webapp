@@ -98,6 +98,23 @@ const routes = [
         component: () => import('../views/Advertiser/CampaignView')
       }
     ]
+  },
+  {
+    path: '/promoter',
+    name: 'Promoter',
+    component: Promoter,
+    children: [
+      {
+        path: '',
+        name: 'PromoterDashboard',
+        component: () => import('../views/Promoter/Dashboard')
+      },
+      {
+        path: 'offer-list',
+        name: 'PromoterOfferList',
+        component: () => import('../views/Promoter/PromoterOfferList')
+      }
+    ],
   }
 ]
 
